@@ -1,8 +1,119 @@
-<header>
-    <h1>Enterprise Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-    <p>
-        Accessible enterprise dashboard for monitoring
-        users, reports, projects, and system activity.
-    </p>
-</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible enterprise dashboard">
+    <title>Enterprise Dashboard</title>
+</head>
+
+<body>
+
+    <a href="#main-content">Skip to main content</a>
+
+    <header>
+        <h1>Enterprise Dashboard</h1>
+
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <section id="dashboard" aria-labelledby="dashboard-title">
+            <h2 id="dashboard-title">Dashboard Overview</h2>
+
+            <p>
+                Welcome to the enterprise dashboard. Review key
+                business information and recent activity.
+            </p>
+
+            <section aria-labelledby="summary-title">
+                <h3 id="summary-title">Summary</h3>
+
+                <article>
+                    <h4>Total Users</h4>
+                    <p>1,248</p>
+                </article>
+
+                <article>
+                    <h4>Active Projects</h4>
+                    <p>36</p>
+                </article>
+
+                <article>
+                    <h4>Completed Tasks</h4>
+                    <p>892</p>
+                </article>
+            </section>
+        </section>
+
+        <section id="reports" aria-labelledby="reports-title">
+            <h2 id="reports-title">Recent Reports</h2>
+
+            <table>
+                <caption>Recent enterprise reports</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Report</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Monthly Performance</td>
+                        <td>Completed</td>
+                        <td>08 October 2026</td>
+                    </tr>
+
+                    <tr>
+                        <td>User Activity</td>
+                        <td>In Progress</td>
+                        <td>07 October 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="users" aria-labelledby="users-title">
+            <h2 id="users-title">User Search</h2>
+
+            <form>
+                <label for="user-search">Search users</label>
+
+                <input
+                    type="search"
+                    id="user-search"
+                    name="user-search"
+                    placeholder="Enter user name"
+                >
+
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section id="settings" aria-labelledby="settings-title">
+            <h2 id="settings-title">Settings</h2>
+
+            <button type="button">Manage Account</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Enterprise Dashboard</p>
+    </footer>
+
+</body>
+
+</html>
