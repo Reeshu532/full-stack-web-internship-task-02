@@ -14,46 +14,37 @@ async function fetchUsers() {
             throw new Error("Failed to fetch users");
         }
 
-        state.users = await response.json();
-        state.filteredUsers = [...state.users];
+        const users = await response.json();
+
+        state.users = users;
+        state.filteredUsers = users;
 
         renderUsers();
     } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error:", error);
+        userSection.innerHTML = "<p>Unable to load users.</p>";
     }
 }
 
 function renderUsers() {
-    let results = document.querySelector("#user-results");
-
-    if (!results) {
-        results = document.createElement("div");
-        results.id = "user-results";
-        results.setAttribute("aria-live", "polite");
-        userSection.appendChild(results);
-    }
-
-    results.innerHTML = "";
+    userSection.innerHTML = "";
 
     state.filteredUsers.forEach((user) => {
         const article = document.createElement("article");
 
-        const name = document.createElement("h3");
-        name.textContent = user.name;
+        article.innerHTML = `
+            <h3>${user.name}</h3>
+            <p>Email: ${user.email}</p>
+            <p>Phone: ${user.phone}</p>
+            <p>Website: ${user.website}</p>
+        `;
 
-        const email = document.createElement("p");
-        email.textContent = `Email: ${user.email}`;
-
-        const company = document.createElement("p");
-        company.textContent = `Company: ${user.company.name}`;
-
-        article.append(name, email, company);
-        results.appendChild(article);
+        userSection.appendChild(article);
     });
 }
 
 function filterUsers() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
+    const searchTerm = searchInput.value.toLowerCase();
 
     state.filteredUsers = state.users.filter((user) =>
         user.name.toLowerCase().includes(searchTerm)
